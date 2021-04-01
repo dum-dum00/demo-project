@@ -87,7 +87,7 @@ const CreateProjectType = () => {
           <div className='inline-block mr-5'>
             <span className='inline-block font-bold text-white'>Priority:</span>
             <select
-              className=' inline-block formInput'
+              className=' inline-block cursor-pointer formInput'
               name='pTypeDescription'
               value={pTypePriority.val}
               onChange={onPriorityChange}
@@ -103,7 +103,7 @@ const CreateProjectType = () => {
           <div className='inline-block '>
             <span className='inline-block  font-bold text-white'>Status:</span>
             <select
-              className='inline-block formInput'
+              className='inline-block cursor-pointer formInput'
               name='Status:'
               value={pTypeStatus.val}
               onChange={onStatusChange}

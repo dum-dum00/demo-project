@@ -49,7 +49,7 @@ export const Customers = () => {
           </thead>
           <tbody>
             {splitList().map((item, index) => (
-              <tr key={index} className='hover:bg-gray-200' onClick={() => onClick(item)}>
+              <tr key={index} className='cursor-pointer hover:bg-gray-200' onClick={() => onClick(item)}>
                 <td className='border border-blue-500'>{item.name}</td>
                 <td className='border border-blue-500'>{item.description}</td>
                 <td className='border border-blue-500'>{item.priority}</td>

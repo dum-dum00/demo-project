@@ -76,7 +76,7 @@ const CreateTechStack = () => {
             <div className='inline-block '>
               <span className='inline-block  font-bold text-white'>Status: </span>
               <select
-                className='inline-block formInput'
+                className='inline-block cursor-pointer formInput cursor-pointer'
                 name='tStackstatus'
                 value={tStackStatus.val}
                 onChange={onStatusChange}

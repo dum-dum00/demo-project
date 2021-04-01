@@ -99,9 +99,9 @@ export const EditProjectType = () => {
           </label>
           <label className='block mt-3'>
             <div className='inline-block mr-5'>
-              <span className='inline-block font-bold text-white'>Priority:</span>
+              <span className='inline-block font-bold text-black'>Priority:</span>
               <select
-                className=' inline-block formInput'
+                className=' inline-block cursor-pointer formInput'
                 name='pTypeDescription'
                 value={pTypePriority.val}
                 onChange={onPriorityChange}
@@ -120,7 +120,7 @@ export const EditProjectType = () => {
             <div className='inline-block '>
               <span className='inline-block  font-bold text-black'>Status:</span>
               <select
-                className='inline-block formInput'
+                className='inline-block cursor-pointer formInput'
                 name='Type:'
                 value={pTypeStatus.val}
                 onChange={onStatusChange}

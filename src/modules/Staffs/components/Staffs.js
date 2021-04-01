@@ -39,15 +39,13 @@ export const Staffs = () => {
         <table className='w-full border-collapse text-lg'>
           <thead className='bg-blue-500'>
             <tr className=' text-white text-xl'>
-              <th className='border border-blue-500 '>#</th>
               <th className='border border-blue-500 '>Name</th>
               <th className='border border-blue-500 '>Email</th>
             </tr>
           </thead>
           <tbody>
             {splitList().map((item, index) => (
-              <tr onClick={() => onClick(item)} key={index} className='  hover:bg-gray-200'>
-                <td className='border border-blue-500'>{++index}</td>
+              <tr onClick={() => onClick(item)} key={index} className=' cursor-pointer hover:bg-gray-200'>
                 <td className='border border-blue-500'>{item.name}</td>
                 <td className='border border-blue-500'>{item.email}</td>
               </tr>

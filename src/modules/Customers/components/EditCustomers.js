@@ -18,8 +18,8 @@ export const EditCustomers = () => {
     let details = location.state.data;
     if (details) {
       setcustomersName({ val: details.name });
-      setcustomersDescription({ val: details.priority });
-      setcustomersPriority({ val: details.description });
+      setcustomersDescription({ val: details.description  });
+      setcustomersPriority({ val: details.priority });
       setcustomersStatus({ val: details.status });
     }
   }, [location.state.data]);
@@ -99,7 +99,7 @@ export const EditCustomers = () => {
               <div className='inline-block mr-5'>
                 <span className='inline-block font-bold text-black'>Priority:</span>
                 <select
-                  className=' inline-block formInput'
+                  className=' inline-block cursor-pointer formInput'
                   name='customersDescription'
                   value={customersPriority.val}
                   onChange={onPriorityChange}
@@ -117,7 +117,7 @@ export const EditCustomers = () => {
               <div className='inline-block '>
                 <span className='inline-block  font-bold text-black'>Status:</span>
                 <select
-                  className='inline-block formInput'
+                  className='inline-block cursor-pointer formInput'
                   name='Status:'
                   value={customersStatus.val}
                   onChange={onStatusChange}

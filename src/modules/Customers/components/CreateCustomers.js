@@ -85,7 +85,7 @@ const CreateTechStack = () => {
           <div className='inline-block mr-5'>
             <span className='inline-block font-bold text-white'>Priority:</span>
             <select
-              className=' inline-block formInput'
+              className=' inline-block cursor-pointer formInput'
               name='customersPriority'
               onChange={onPriorityChange}
               value={customersPriority.val}
@@ -103,7 +103,7 @@ const CreateTechStack = () => {
           <div className='inline-block'>
             <span className='inline-block  font-bold text-white'>Status:</span>
             <select
-              className='inline-block formInput'
+              className='inline-block cursor-pointer formInput'
               name='customersStatus'
               onChange={onStatusChange}
               value={customersStatus.val}

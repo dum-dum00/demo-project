@@ -96,7 +96,7 @@ export const EditTechStack = () => {
               <div className='inline-block '>
                 <span className='inline-block  font-bold text-black'>Status:</span>
                 <select
-                  className='inline-block formInput'
+                  className='inline-block cursor-pointer formInput'
                   name='Status:'
                   value={techStackStatus.val}
                   onChange={onStatusChange}

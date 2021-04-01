@@ -50,7 +50,7 @@ export  const ProjectStatus = () => {
           </thead>
           <tbody>
             {splitList().map((item, index) => (
-              <tr onClick={()=>onClick(item)} key={index} className='  hover:bg-gray-200'>
+              <tr onClick={()=>onClick(item)} key={index} className=' cursor-pointer hover:bg-gray-200'>
                   <td className='border border-blue-500'>{item.name}</td>
                   <td className='border border-blue-500'>{item.description}</td>
                   <td className='border border-blue-500'>{item.status}</td>

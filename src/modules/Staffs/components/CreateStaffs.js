@@ -232,7 +232,7 @@ const CreateStaffs = () => {
           <div className='inline-block '>
             <span className='inline-block  font-bold text-white'>Role:</span>
             <select
-              className='inline-block formInput'
+              className='inline-block cursor-pointer formInput'
               name='staffsRole'
               value={staffsRole.val}
               onChange={onRoleChange}

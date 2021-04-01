@@ -78,7 +78,7 @@ const CreateProjectStatus = () => {
             <div className='inline-block '>
               <span className='inline-block  font-bold text-white'>Status:</span>
               <select
-                className='inline-block formInput'
+                className='inline-block cursor-pointer formInput'
                 name='pStatusStatus'
                 value={pStatusStatus.val}
                 onChange={onStatusChange}

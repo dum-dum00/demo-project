@@ -51,7 +51,7 @@ export const ProjectType = () => {
           <tbody>
             {splitList().map((item, index) => (
               <tr key={index} 
-              className='hover:bg-gray-200'
+              className='cursor-pointer hover:bg-gray-200'
               onClick={()=>onClick(item)}>
                   <td className='border border-blue-500'>{item.name}</td>
                   <td className='border border-blue-500'>{item.description}</td>

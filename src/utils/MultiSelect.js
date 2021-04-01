@@ -30,7 +30,7 @@ export const MultiSelect = ({ LIST_NAME, value, callBack }) => {
     else {
       setSelect({ selected: [], data });
     }
-  }, [value]);
+  }, [LIST_NAME, value]);
 
   const handleShow = () => {
     setShow(!show);
@@ -73,7 +73,7 @@ export const MultiSelect = ({ LIST_NAME, value, callBack }) => {
   const dropDownSelect = data => {
     return data.length ? (
       <ul
-        className=" z-10 h-24 w-full max-w-xs overflow-scroll 
+        className="cursor-pointer z-10 h-24 w-full max-w-xs overflow-scroll 
         overflow-x-hidden absolute rounded-md bg-white border-2 text-center"
       >
         {data.map((item, index) => (
@@ -99,7 +99,7 @@ export const MultiSelect = ({ LIST_NAME, value, callBack }) => {
   const { selected, data } = select;
 
   return (
-    <div className="w-full relative  my-1 " ref={wrapperRef}>
+    <div className="w-full relative cursor-pointer  my-1 " ref={wrapperRef}>
       <div
         className={`border-2 py-0.5 h-11 flex bg-white
           ${show ? "border-2 border-gray-outlineFocus rounded-md " : " border-gray-outline rounded"}
