@@ -1,0 +1,34 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.navBtn {
+  @apply flex text-xl text-black font-bold my-4 pl-1
+} 
+.navBtn:hover {
+  @apply bg-blue-500 pl-4 ml-2  text-white rounded-full 
+}
+
+.formInput {
+  @apply mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50
+}
+
+.btnAlert {
+  @apply bg-red-500 text-white font-bold py-1 px-3 rounded
+}
+
+.btnAlert:hover {
+  @apply bg-red-700
+}
+
+.detailPara{
+  @apply text-sm text-gray-600 inline-block
+}
+
+.btn{
+  @apply bg-blue-700 text-white font-bold py-1 px-5 rounded
+}
+
+.btn:hover {
+  @apply bg-blue-400
+}

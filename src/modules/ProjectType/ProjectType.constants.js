@@ -1,0 +1,18 @@
+export const GET_PROJECT_TYPE_LIST ='GET_PROJECT_TYPE_LIST';
+
+export const GET_PROJECT_TYPE ='GET_PROJECT_TYPE';
+
+export const DELETE_PROJECT_TYPE = "DELETE_PROJECT_TYPE ";
+
+export const CREATE_PROJECT_TYPE = 'CREATE_PROJECT_TYPE';
+
+
+export const EDIT_PROJECT_TYPE = "EDIT_PROJECT_TYPE ";
+
+export const MOVE_TO_NEXT_PAGE = "MOVE_TO_NEXT_PAGE";
+export const MOVE_TO_PREVIOUS_PAGE = "MOVE_TO_PREVIOUS_PAGE";
+
+export const LIST_NAME = 'projectTypes'
+
+export const LIMIT_PROJECT_TYPE = 5;
+

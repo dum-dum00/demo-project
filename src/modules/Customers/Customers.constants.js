@@ -1,0 +1,20 @@
+export const GET_CUSTOMERS_LIST ='GET_CUSTOMERS_LIST';
+
+export const GET_CUSTOMERS ='GET_CUSTOMERS';
+
+export const DELETE_CUSTOMERS = "DELETE_CUSTOMERS ";
+
+export const CREATE_CUSTOMERS = 'CREATE_CUSTOMERS';
+
+
+export const EDIT_CUSTOMERS = "EDIT_CUSTOMERS ";
+
+export const MOVE_TO_NEXT_PAGE = "MOVE_TO_NEXT_PAGE";
+
+export const MOVE_TO_PREVIOUS_PAGE = "MOVE_TO_PREVIOUS_PAGE";
+
+
+export const LIST_NAME = 'customers'
+
+export const LIMIT_CUSTOMERS = 5;
+
