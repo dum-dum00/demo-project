@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { createTechStackService } from '../TechStack.service';
 import { genId } from '../../../utils/genId';
 
-const CreateTechStack = () => {
+const CreateTechStack = ({onClose}) => {
   const dispatch = useDispatch();
 
   const [tStackName, settStackName] = useState({ val: '' });
@@ -42,11 +42,12 @@ const CreateTechStack = () => {
     };
     dispatch(createTechStackService(data));
     resetForm();
+    onClose();
   };
   return (
     <div>
       <div className='self-center'>
-        <h3 className='font-bold text-white text-xl text-center'>New Project Status</h3>
+        <h3 className='font-bold text-white text-xl text-center pb-4 border-b-4 border-white '>New Tech Stack</h3>
         <form onSubmit={onSubmit}>
           <br></br>
           <label className='block mt-2'>
@@ -76,7 +77,7 @@ const CreateTechStack = () => {
             <div className='inline-block '>
               <span className='inline-block  font-bold text-white'>Status: </span>
               <select
-                className='inline-block cursor-pointer formInput cursor-pointer'
+                className='inline-block cursor-pointer formInput '
                 name='tStackstatus'
                 value={tStackStatus.val}
                 onChange={onStatusChange}
@@ -84,16 +85,19 @@ const CreateTechStack = () => {
                 <option value='' hidden>
                   Pick an option...
                 </option>
-                <option value='active'>Active</option>
-                <option value='inactive'>Inactive</option>
+                <option value='Active'>Active</option>
+                <option value='Inactive'>Inactive</option>
               </select>
             </div>
           </label>
 
-          <div className='flex justify-center'>
-            <button className='bg-green-700 hover:bg-green-800 text-white font-bold rounded-md px-4 py-2 mt-3'>
+          <div className='flex justify-end space-x-4'>
+            <button className='bg-green-500 hover:bg-green-400 text-white font-bold rounded-md px-4 py-2 mt-5 '>
               Create
             </button>
+            <button onClick={onClose} className="bg-gray-400 hover:bg-gray-300 text-white font-bold rounded-md px-4 py-2 mt-5 ">
+            Cancel
+          </button>
           </div>
         </form>
       </div>

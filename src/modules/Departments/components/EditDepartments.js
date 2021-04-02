@@ -136,7 +136,7 @@ export const EditDepartments = () => {
           </div>
 
           <div className='flex justify-center'>
-            <button className='bg-green-700 hover:bg-green-800 text-white font-bold rounded-md px-4 py-2 mt-5 '>
+            <button className='bg-green-500 hover:bg-green-400 text-white font-bold rounded-md px-4 py-2 mt-5 '>
               Create
             </button>
           </div>

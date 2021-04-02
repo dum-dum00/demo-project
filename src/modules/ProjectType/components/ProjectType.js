@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getList } from '../../../services';
 import { getProjectTypeListService } from '../ProjectType.services';
@@ -6,6 +6,7 @@ import { LIST_NAME, LIMIT_PROJECT_TYPE } from '../ProjectType.constants';
 import { Pagination } from '../../../components/Pagination';
 import { useHistory, useLocation } from "react-router-dom";
 import { PATH_PROJECT_TYPE} from '../../../constants/path'
+import CreateModal from "../../../utils/CreateModal";
 
 
 import CreateProjectType from './CreateProjectType';
@@ -35,10 +36,30 @@ export const ProjectType = () => {
   const onClick = item => {
     history.push(`${PATH_PROJECT_TYPE}/${item.id}`)
   };
+ 
+  const [isOpen, setIsOpen] = useState(false);
+  const toogleModal = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <div className='h-full flex  rounded-xl items-center'>
-      <div className='p-4 text-center	my-2 flex-1 flex flex-col rounded-xl w-3/4 '>
+    <div className="bg-white flex flex-col mt-10 rounded-xl shadow">
+      <div className=" border-b border-gray-300 flex-row p-3">
+        <span className="inline-flex text-xl font-bold p-3  ">Project Type:</span>
+
+          <button className='h-full text-white bg-green-700 hover:bg-green-500 opacity-75 rounded-xl inline-flex px-4 py-2 float-right mr-6' 
+          onClick={toogleModal}> New
+          
+          <i class="fa fa-plus ml-1" aria-hidden="true"></i>
+          </button>
+        {isOpen ? (
+          <CreateModal onClose={toogleModal}>
+            <CreateProjectType onClose={toogleModal} />
+          </CreateModal>
+        ) : null}
+      </div>
+      <div className="h-full flex w-4/5 mx-auto  rounded-xl items-center">
+        <div className="p-4 text-center	my-2 px-10 flex-row rounded-xl w-full">
         <table className='w-full border-collapse text-lg'>
           <thead className='bg-blue-500'>
             <tr className=' text-white text-xl'>
@@ -74,8 +95,7 @@ export const ProjectType = () => {
       />
       </div>
 
-      <div className='w-1/4 h-full bg-blue-800 opacity-75 p-5 px-8 rounded-xl'>
-        <CreateProjectType />
+     
       </div>
     </div>
   );

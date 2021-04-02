@@ -47,9 +47,8 @@ export const EditStaffs = () => {
     setStaffsName({ val: value });
   };
 
-  const onTechStackChange = (event) => {
-    const { value } = event.target;
-    setStaffsTechStack({ ...StaffsTechStack, val: value });
+  const onTechStackChange = (data) => {
+    setStaffsTechStack({ ...StaffsTechStack, val: data });
   };
   const onDOBChange = (event) => {
     const { value } = event.target;
@@ -135,8 +134,8 @@ export const EditStaffs = () => {
 
       <div className="self-center m-5 rounded-xl shadow p-5 px-10 w-full">
         <form onSubmit={onSubmit}>
-          <div className="flex justify-start space-x-20">
-            <div className="inline-block">
+          <div className="inline-flex space-x-7 w-full mt-3">
+            <div className="flex-1 ">
               <label className="block mt-2">
                 <span className="block font-bold text-black">Name: </span>
                 <input
@@ -150,7 +149,7 @@ export const EditStaffs = () => {
               </label>
             </div>
 
-            <div className="inline-block">
+            <div className="flex-1 ">
               <label className="block mt-2">
                 <span className="block font-bold text-black">
                   Date of birth:{" "}
@@ -164,7 +163,7 @@ export const EditStaffs = () => {
                 />
               </label>
             </div>
-            <div className="inline-block">
+            <div className="flex-1 ">
               <label className="block mt-3">
                 <span className="block font-bold text-black">Email:</span>
                 <input
@@ -179,116 +178,127 @@ export const EditStaffs = () => {
             </div>
           </div>
 
-          <div className="flex justify-start space-x-20">
-            <label className="block mt-3">
-              <span className="block font-bold text-black">Address:</span>
-              <input
-                className="block formInput"
-                type="text"
-                id="StaffAdress"
-                name="StaffAdress"
-                value={StaffAdress.val}
-                onChange={onAdressChange}
-              ></input>
-            </label>
-
-            <label className="block mt-3">
-              <span className="block font-bold text-black">SSN:</span>
-              <input
-                className="block formInput"
-                type="text"
-                id="StaffSSN"
-                name="StaffSSN"
-                value={StaffSSN.val}
-                onChange={onSSNChange}
-              ></input>
-            </label>
-
-            <label className="block mt-3">
-              <span className="block font-bold text-black">Phone Number:</span>
-              <input
-                className="block formInput"
-                type="text"
-                id="StaffNum"
-                name="StaffNum"
-                value={StaffNum.val}
-                onChange={onNumChange}
-              ></input>
-            </label>
-          </div>
-
-          <div className="flex justify-start space-x-20">
-            <label className="block mt-3">
-              <span className="block font-bold text-black">Password:</span>
-              <input
-                className="block formInput"
-                type="password"
-                id="StaffPassword"
-                name="StaffPassword"
-                value={StaffPassword.val}
-                onChange={onPasswordChange}
-              ></input>
-            </label>
-
-            <label className="block mt-3">
-              <span className="block font-bold text-black">Certificate:</span>
-              <input
-                className="block formInput"
-                type="text"
-                id="StaffCertificate"
-                name="StaffCertificate"
-                value={StaffCertificate.val}
-                onChange={onCertificateChange}
-              ></input>
-            </label>
-
-            <label className="block mt-3">
-              <span className="block font-bold text-black">Language:</span>
-              <input
-                className="block formInput"
-                type="text"
-                id="StaffLanguage"
-                name="StaffLanguage"
-                value={StaffLanguage.val}
-                onChange={onLanguageChange}
-              ></input>
-            </label>
-          </div>
-
-          <div className='flex justify-start space-x-20'>
-
-          <label className="block mt-3">
-            <div className="inline-block ">
-              <span className="inline-block  font-bold text-black">Role:</span>
-              <select
-                className="inline-block cursor-pointer formInput"
-                name="StaffRole"
-                value={StaffRole.val}
-                onChange={onRoleChange}
-              >
-                <option value="" hidden>
-                  Pick an option...
-                </option>
-                <option value="staff">staff</option>
-                <option value="monitor">monitor</option>
-              </select>
-            </div>
-          </label>
-
-          <div className="inline-flex space-x-7 w-1/6 mt-3">
+          <div className="inline-flex space-x-7 w-full mt-3">
             <div className="flex-1 ">
-              <span className=" font-bold text-black">Tech stack: </span>
-              <MultiSelect
-                value={StaffsTechStack.val}
-                callBack={onTechStackChange}
-                LIST_NAME={TECH_STACK_LIST}
-              />
+              <label className="block mt-3">
+                <span className="block font-bold text-black">Address:</span>
+                <input
+                  className="block formInput"
+                  type="text"
+                  id="StaffAdress"
+                  name="StaffAdress"
+                  value={StaffAdress.val}
+                  onChange={onAdressChange}
+                ></input>
+              </label>
+            </div>
+            <div className="flex-1 ">
+              <label className="block mt-3">
+                <span className="block font-bold text-black">SSN:</span>
+                <input
+                  className="block formInput"
+                  type="text"
+                  id="StaffSSN"
+                  name="StaffSSN"
+                  value={StaffSSN.val}
+                  onChange={onSSNChange}
+                ></input>
+              </label>
+            </div>
+            <div className="flex-1 ">
+              <label className="block mt-3">
+                <span className="block font-bold text-black">
+                  Phone Number:
+                </span>
+                <input
+                  className="block formInput"
+                  type="text"
+                  id="StaffNum"
+                  name="StaffNum"
+                  value={StaffNum.val}
+                  onChange={onNumChange}
+                ></input>
+              </label>
             </div>
           </div>
+          <div className="inline-flex space-x-7 w-full mt-3">
+            <div className="flex-1 ">
+              <label className="block mt-3">
+                <span className="block font-bold text-black">Password:</span>
+                <input
+                  className="block formInput"
+                  type="password"
+                  id="StaffPassword"
+                  name="StaffPassword"
+                  value={StaffPassword.val}
+                  onChange={onPasswordChange}
+                ></input>
+              </label>
+            </div>
+
+            <div className="flex-1 ">
+              <label className="block mt-3">
+                <span className="block font-bold text-black">Certificate:</span>
+                <input
+                  className="block formInput"
+                  type="text"
+                  id="StaffCertificate"
+                  name="StaffCertificate"
+                  value={StaffCertificate.val}
+                  onChange={onCertificateChange}
+                ></input>
+              </label>
+            </div>
+            <div className="flex-1 ">
+              <label className="block mt-3">
+                <span className="block font-bold text-black">Language:</span>
+                <input
+                  className="block formInput"
+                  type="text"
+                  id="StaffLanguage"
+                  name="StaffLanguage"
+                  value={StaffLanguage.val}
+                  onChange={onLanguageChange}
+                ></input>
+              </label>
+            </div>
+          </div>
+
+          <div className="inline-flex space-x-7 w-full mt-3">
+            <label className="block mt-3">
+              <div className="inline-block ">
+                <span className="inline-block  font-bold text-black">
+                  Role:
+                </span>
+                <select
+                  className="inline-block cursor-pointer formInput"
+                  name="StaffRole"
+                  value={StaffRole.val}
+                  onChange={onRoleChange}
+                >
+                  <option value="" hidden>
+                    Pick an option...
+                  </option>
+                  <option value="staff">staff</option>
+                  <option value="monitor">monitor</option>
+                </select>
+              </div>
+            </label>
+
+            <div className="inline-flex space-x-7 w-1/6 mt-3">
+              <div className="flex-1 ">
+                <span className=" font-bold text-black">Tech stack: </span>
+                <MultiSelect
+                  value={StaffsTechStack.val}
+                  callBack={onTechStackChange}
+                  LIST_NAME={TECH_STACK_LIST}
+                />
+              </div>
+            </div>
           </div>
 
           <div className="flex justify-center">
-            <button className="bg-green-700 hover:bg-green-800 text-white font-bold rounded-md px-4 py-2 mt-5 ">
+            <button className='bg-green-500 hover:bg-green-400 text-white font-bold rounded-md px-4 py-2 mt-5 '>
               Create
             </button>
           </div>

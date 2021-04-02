@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { createCustomersService } from '../Customers.services';
 import { genId } from '../../../utils/genId';
 
-const CreateTechStack = () => {
+const CreateTechStack = ({onClose}) => {
   const dispatch = useDispatch();
 
   const [customersName, setcustomersName] = useState({ val: '' });
@@ -44,6 +44,7 @@ const CreateTechStack = () => {
 
     dispatch(createCustomersService(data));
     resetForm();
+    onClose()
   };
 
   const resetForm = () => {
@@ -55,7 +56,7 @@ const CreateTechStack = () => {
 
   return (
     <div className='self-center'>
-      <h3 className='font-bold text-white text-xl text-center'>New Customers</h3>
+      <h3 className='font-bold text-white text-xl text-center pb-4 border-b-4 border-white'>New Customers</h3>
       <form onSubmit={onSubmit}>
         <br></br>
         <label className='block mt-2'>
@@ -111,15 +112,20 @@ const CreateTechStack = () => {
               <option value='' hidden>
                 Pick an option...
               </option>
-              <option value='active'>Active</option>
-              <option value='inactive'>Inactive</option>
+              <option value='Active'>Active</option>
+              <option value='Inactive'>Inactive</option>
             </select>
           </div>
         </label>
 
-        <div className='flex justify-center'>
-          <button className='bg-green-700 hover:bg-green-800 text-white font-bold rounded-md px-4 py-2 mt-5 '>
+        <div className='flex justify-end space-x-4'>
+          <button className='bg-green-500 hover:bg-green-400 text-white font-bold rounded-md px-4 py-2 mt-5 '>
             Create
+          </button>
+
+          <button className='bg-gray-400 hover:bg-gray-300 text-white font-bold rounded-md px-4 py-2 mt-5 '
+          onClick={onClose}>
+            Cancel
           </button>
         </div>
       </form>

@@ -5,6 +5,7 @@ import { LIST_NAME } from '../ProjectStatus.constants';
 import { getDetail } from '../../../services/index';
 import { getProjectStatusDetailService, deleteProjectStatusService } from '../ProjectStatus.services';
 import { Link } from 'react-router-dom';
+import  DeleteModal from '../../../utils/DeleteModal'
 
 export const DetailProjectStatus = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,12 @@ export const DetailProjectStatus = () => {
     history.goBack();
     dispatch(deleteProjectStatusService(id));
   };
-
+  
+  const [isOpen, setIsOpen] = useState(false)
+  const toogleModal = () => {
+    setIsOpen(!isOpen)
+  }
+ 
   return (
     <div className='bg-white flex flex-col mt-10 rounded-xl shadow'>
       <div className=' border-b border-gray-bgTag flex '>
@@ -46,11 +52,17 @@ export const DetailProjectStatus = () => {
         </div>
 
         <div className='flex flex-row  align-right p-3 justify-end'>
-          <button onClick={onDelete} className='btnAlert btnAlert:hover mx-3 align-right'>
+          <button onClick={toogleModal} className='btnAlert btnAlert:hover mx-3 align-right'>
             <i className='fa fa-trash mr-2' aria-hidden='true'></i>
             Delete
           </button>
         </div>
+
+        {isOpen ? (
+        <DeleteModal onClose={toogleModal} onDelete={onDelete}> 
+          Fancy Modal
+        </DeleteModal>
+        ): null}
       </div>
 
       <div className='flex p-5 px-8'>

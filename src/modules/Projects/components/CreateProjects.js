@@ -1,73 +1,75 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { createProjectServices } from '../Projects.services';
-import { genId } from '../../../utils/genId';
-import { MultiSelect } from '../../../utils/MultiSelect';
-import { LIST_NAME as TECH_STACK_LIST } from '../../TechStack/TechStack.constants';
-import { LIST_NAME as STAFF_LIST } from '../../Staffs/Staffs.constants';
-import { LIST_NAME as CUSTOMERS_LIST } from '../../Customers/Customers.constants';
-import { LIST_NAME as DEPARTMENTS_LIST } from '../../Departments/Departments.constants';
-import { LIST_NAME as PROJECT_TYPE_LIST } from '../../ProjectType/ProjectType.constants';
-import { LIST_NAME as PROJECT_STATUS_LIST } from '../../ProjectStatus/ProjectStatus.constants';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createProjectServices } from "../Projects.services";
+import { genId } from "../../../utils/genId";
+import { MultiSelect } from "../../../utils/MultiSelect";
+import { LIST_NAME as TECH_STACK_LIST } from "../../TechStack/TechStack.constants";
+import { LIST_NAME as STAFF_LIST } from "../../Staffs/Staffs.constants";
+import { LIST_NAME as CUSTOMERS_LIST } from "../../Customers/Customers.constants";
+import { LIST_NAME as DEPARTMENTS_LIST } from "../../Departments/Departments.constants";
+import { LIST_NAME as PROJECT_TYPE_LIST } from "../../ProjectType/ProjectType.constants";
+import { LIST_NAME as PROJECT_STATUS_LIST } from "../../ProjectStatus/ProjectStatus.constants";
 
-const CreateStaffs = () => {
+const CreateStaffs = ({onClose}) => {
   const dispatch = useDispatch();
 
-  const [projectsName, setprojectsName] = useState({ val: '' });
-  const [projectsDescription, setprojectsDescription] = useState({ val: '' });
-  const [projectsProjectType, setprojectsProjectType] = useState({ val: '' });
-  const [projectsProjectStatus, setprojectsProjectStatus] = useState({ val: '' });
-  const [projectsCustomers, setprojectsCustomers] = useState({ val: '' });
-  const [projectsDepartments, setprojectsDepartments] = useState({ val: '' });
-  const [projectsStaffs, setprojectsStaffs] = useState({ val: '' });
+  const [projectsName, setprojectsName] = useState({ val: "" });
+  const [projectsDescription, setprojectsDescription] = useState({ val: "" });
+  const [projectsProjectType, setprojectsProjectType] = useState({ val: "" });
+  const [projectsProjectStatus, setprojectsProjectStatus] = useState({
+    val: "",
+  });
+  const [projectsCustomers, setprojectsCustomers] = useState({ val: "" });
+  const [projectsDepartments, setprojectsDepartments] = useState({ val: "" });
+  const [projectsStaffs, setprojectsStaffs] = useState({ val: "" });
 
-  const [projectsTechStack, setprojectsTechStack] = useState({ val: '' });
+  const [projectsTechStack, setprojectsTechStack] = useState({ val: "" });
 
-  const onNameChange = event => {
+  const onNameChange = (event) => {
     const { value } = event.target;
     setprojectsName({ val: value });
   };
 
-  const onDescriptionChange = event => {
+  const onDescriptionChange = (event) => {
     const { value } = event.target;
     setprojectsDescription({ val: value });
   };
 
-  const onTechStackChange = data => {
+  const onTechStackChange = (data) => {
     setprojectsTechStack({ ...projectsTechStack, val: data });
   };
 
-  const onProjectTypeChange = data => {
+  const onProjectTypeChange = (data) => {
     setprojectsProjectType({ ...projectsProjectType, val: data });
   };
 
-  const onProjectStatusChange = data => {
+  const onProjectStatusChange = (data) => {
     setprojectsProjectStatus({ ...projectsProjectStatus, val: data });
   };
 
-  const onCustomersChange = data => {
+  const onCustomersChange = (data) => {
     setprojectsCustomers({ ...projectsCustomers, val: data });
   };
 
-  const onDepartmentsChange = data => {
+  const onDepartmentsChange = (data) => {
     setprojectsDepartments({ ...projectsDepartments, val: data });
   };
 
-  const onStaffsChange = data => {
+  const onStaffsChange = (data) => {
     setprojectsStaffs({ ...projectsStaffs, val: data });
   };
 
   const getCurDate = () => {
     let today = new Date();
-    let dd = String(today.getDate()).padStart(2, '0');
-    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let dd = String(today.getDate()).padStart(2, "0");
+    let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
     let yyyy = today.getFullYear();
 
-    today = mm + '/' + dd + '/' + yyyy;
+    today = mm + "/" + dd + "/" + yyyy;
     return today;
   };
 
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault();
 
     let data = {
@@ -85,51 +87,54 @@ const CreateStaffs = () => {
 
     dispatch(createProjectServices(data));
     resetForm();
+    onClose();
   };
 
   const resetForm = () => {
-    setprojectsName({ val: '' });
-    setprojectsDescription({ val: '' });
-    setprojectsTechStack({ val: '' });
-    setprojectsProjectType({ val: '' });
-    setprojectsProjectStatus({ val: '' });
-    setprojectsCustomers({ val: '' });
-    setprojectsDepartments({ val: '' });
-    setprojectsStaffs({ val: '' });
+    setprojectsName({ val: "" });
+    setprojectsDescription({ val: "" });
+    setprojectsTechStack({ val: "" });
+    setprojectsProjectType({ val: "" });
+    setprojectsProjectStatus({ val: "" });
+    setprojectsCustomers({ val: "" });
+    setprojectsDepartments({ val: "" });
+    setprojectsStaffs({ val: "" });
   };
 
   return (
-    <div className='self-center'>
-      <h3 className='font-bold text-white text-xl text-center'>New Projects</h3>
+    <div className="self-center">
+      <h3 className="font-bold text-white text-xl text-center pb-4 border-b-4 border-white">
+        New Projects
+      </h3>
       <form onSubmit={onSubmit}>
         <br></br>
-        <label className='block mt-2'>
-          <span className='block font-bold text-white'>Name: </span>
+        <label className="block mt-2">
+          <span className="block font-bold text-white">Name: </span>
           <input
-            className='block formInput'
-            type='text'
-            id='projectssName'
-            name='projectssName '
+            className="block formInput"
+            type="text"
+            id="projectssName"
+            name="projectssName "
             value={projectsName.val}
             onChange={onNameChange}
           />
         </label>
 
-        <label className='block mt-3'>
-          <span className='block font-bold text-white'>Description:</span>
+        <label className="block mt-3">
+          <span className="block font-bold text-white">Description:</span>
           <textarea
-            className='block formInput'
-            type='type'
-            id='projectsDescription'
-            name='projectsDescription'
+            className="block formInput"
+            type="type"
+            id="projectsDescription"
+            name="projectsDescription"
             value={projectsDescription.val}
             onChange={onDescriptionChange}
-            rows='3'
+            rows="3"
           ></textarea>
         </label>
 
-        <label className='block mt-2'>
-          <span className='block font-bold text-white'>Tech stack: </span>
+        <label className="block mt-2">
+          <span className="block font-bold text-white">Tech stack: </span>
           <MultiSelect
             value={projectsTechStack.val}
             callBack={onTechStackChange}
@@ -137,8 +142,8 @@ const CreateStaffs = () => {
           />
         </label>
 
-        <label className='block mt-2'>
-          <span className='block font-bold text-white'>Project Type: </span>
+        <label className="block mt-2">
+          <span className="block font-bold text-white">Project Type: </span>
           <MultiSelect
             value={projectsProjectType.val}
             callBack={onProjectTypeChange}
@@ -146,8 +151,8 @@ const CreateStaffs = () => {
           />
         </label>
 
-        <label className='block mt-2'>
-          <span className='block font-bold text-white'>Project Status: </span>
+        <label className="block mt-2">
+          <span className="block font-bold text-white">Project Status: </span>
           <MultiSelect
             value={projectsProjectStatus.val}
             callBack={onProjectStatusChange}
@@ -155,9 +160,8 @@ const CreateStaffs = () => {
           />
         </label>
 
-
-        <label className='block mt-2'>
-          <span className='block font-bold text-white'>Customers: </span>
+        <label className="block mt-2">
+          <span className="block font-bold text-white">Customers: </span>
           <MultiSelect
             value={projectsCustomers.val}
             callBack={onCustomersChange}
@@ -165,9 +169,8 @@ const CreateStaffs = () => {
           />
         </label>
 
-
-        <label className='block mt-2'>
-          <span className='block font-bold text-white'>Departments: </span>
+        <label className="block mt-2">
+          <span className="block font-bold text-white">Departments: </span>
           <MultiSelect
             value={projectsDepartments.val}
             callBack={onDepartmentsChange}
@@ -175,8 +178,8 @@ const CreateStaffs = () => {
           />
         </label>
 
-        <label className='block mt-2'>
-          <span className='block font-bold text-white'>Staffs: </span>
+        <label className="block mt-2">
+          <span className="block font-bold text-white">Staffs: </span>
           <MultiSelect
             value={projectsStaffs.val}
             callBack={onStaffsChange}
@@ -184,9 +187,12 @@ const CreateStaffs = () => {
           />
         </label>
 
-        <div className='flex justify-center'>
-          <button className='bg-green-700 hover:bg-green-800 text-white font-bold rounded-md px-4 py-2 mt-5 '>
+        <div className="flex justify-end space-x-4">
+          <button className="bg-green-500 hover:bg-green-400 text-white font-bold rounded-md px-4 py-2 mt-5 ">
             Create
+          </button>
+          <button onClick={onClose} className="bg-gray-400 hover:bg-gray-300 text-white font-bold rounded-md px-4 py-2 mt-5 ">
+            Cancel
           </button>
         </div>
       </form>

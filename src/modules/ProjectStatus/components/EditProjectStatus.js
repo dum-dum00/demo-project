@@ -105,14 +105,14 @@ export const EditProjectStatus = () => {
                   <option value='' hidden>
                     Pick an option...
                   </option>
-                  <option value='active'>Active</option>
-                  <option value='inactive'>Inactive</option>
+                  <option value='Active'>Active</option>
+                  <option value='Inactive'>Inactive</option>
                 </select>
               </div>
             </label>
 
             <div className='flex justify-center'>
-              <button className='bg-green-700 hover:bg-green-800 text-white font-bold rounded-md px-4 py-2 mt-3'>
+              <button className='bg-green-500 hover:bg-green-400 text-white font-bold rounded-md px-4 py-2 mt-5 '>
                 Change
               </button>
             </div>
